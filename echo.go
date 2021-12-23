@@ -25,6 +25,9 @@ func main() {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "%s %s %s \n", r.Method, r.URL, r.Proto)
+	
+	log.Printf("Request: %s %s %s \n", r.Method, r.URL, r.Proto)
+
 	//Iterate over all header fields
 	fmt.Fprintf(w, "[Headers]\n")
 	keys := []string{}
@@ -39,4 +42,5 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Host = %q\n", r.Host)
 	fmt.Fprintf(w, "RemoteAddr= %q\n", r.RemoteAddr)
 	fmt.Fprintf(w, "\n\n-----\n(c) %d Philipp Ritter\n", time.Now().Year())
+	
 }
